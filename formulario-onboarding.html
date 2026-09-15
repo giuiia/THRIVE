@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briefing de Marca — Thrive Group</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0d0d0d;
+      --teal: #4BB4B2;
+      --purple: #8635E6;
+      --pink: #BC2F84;
+      --red: #F70054;
+      --yellow: #ECAC2D;
+      --white: #ffffff;
+      --surface: #1a1a1a;
+      --surface2: #222222;
+      --border: rgba(255,255,255,0.1);
+      --text-muted: rgba(255,255,255,0.5);
+      --gradient: linear-gradient(135deg, var(--yellow), var(--red), var(--pink), var(--purple), var(--teal));
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Rethink Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .progress-bar {
+      width: 160px;
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--gradient);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 40px 60px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 17px;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── FORM ── */
+    .form-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .section-header {
+      background: var(--surface);
+      padding: 20px 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .section-header:hover { background: var(--surface2); }
+
+    .section-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .section-chevron {
+      font-size: 18px;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+
+    .section.open .section-chevron { transform: rotate(180deg); }
+
+    .section-body {
+      display: none;
+      padding: 28px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .section.open .section-body { display: block; }
+
+    /* ── QUESTION ── */
+    .question {
+      margin-bottom: 32px;
+    }
+
+    .question:last-child { margin-bottom: 0; }
+
+    .question label {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .question .hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    /* inputs */
+    input[type="text"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Rethink Sans', sans-serif;
+      font-size: 15px;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--teal);
+    }
+
+    textarea { min-height: 100px; }
+
+    select option { background: var(--surface); }
+
+    /* radio / checkbox custom */
+    .options-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .options-list.grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 560px) {
+      .options-list.grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .option-item:hover {
+      border-color: rgba(75,180,178,0.4);
+      background: rgba(75,180,178,0.05);
+    }
+
+    .option-item input[type="radio"],
+    .option-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      accent-color: var(--teal);
+      margin-top: 1px;
+      cursor: pointer;
+    }
+
+    .option-item:has(input:checked) {
+      border-color: var(--teal);
+      background: rgba(75,180,178,0.08);
+    }
+
+    /* other field */
+    .other-field {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .other-field.visible { display: block; }
+
+    /* scale / axes */
+    .scale-group { display: flex; flex-direction: column; gap: 16px; }
+
+    .scale-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .scale-label-left { width: 80px; text-align: right; color: var(--text-muted); flex-shrink: 0; }
+    .scale-label-right { width: 80px; text-align: left; color: var(--text-muted); flex-shrink: 0; }
+
+    .scale-dots {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .scale-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .scale-dot:hover { border-color: var(--teal); }
+    .scale-dot.selected { border-color: var(--teal); background: var(--teal); color: var(--black); font-weight: 700; }
+
+    /* ── SUBMIT ── */
+    .submit-section {
+      margin-top: 48px;
+      padding: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .submit-section h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .submit-section p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: 16px 48px;
+      background: var(--gradient);
+      color: var(--white);
+      font-family: 'Rethink Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+
+    /* ── SUCCESS ── */
+    #success-screen {
+      display: none;
+      max-width: 560px;
+      margin: 80px auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 28px;
+    }
+
+    #success-screen h2 { font-size: 32px; font-weight: 800; margin-bottom: 14px; }
+    #success-screen p { color: var(--text-muted); font-size: 16px; line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong { color: var(--white); }
+
+    @media (max-width: 600px) {
+      header { padding: 20px; }
+      .hero, .form-container { padding-left: 20px; padding-right: 20px; }
+      .hero { padding-top: 48px; }
+      .section-body { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo"><span>thrive</span> group</div>
+  <div class="progress-wrap">
+    <span id="progress-label">0 / 7 seções</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="main-content">
+  <div class="hero-badge">Briefing de Marca</div>
+  <h1>Vamos criar algo <span class="gradient-text">incrível</span> juntos.</h1>
+  <p>Este formulário nos ajuda a entender a fundo a sua propriedade. Não existe resposta certa ou errada — quanto mais detalhe você compartilhar, melhor será o resultado final.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-container">
+  <form id="briefing-form" onsubmit="handleSubmit(event)">
+
+    <!-- SEÇÃO 1 -->
+    <div class="section" id="sec-1">
+      <div class="section-header" onclick="toggleSection('sec-1')">
+        <div class="section-header-left">
+          <div class="section-number">1</div>
+          <div>
+            <div class="section-title">História e Essência</div>
+            <div class="section-subtitle">Origem, valores e a alma da propriedade</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>1. Conte a história da sua propriedade. *</label>
+          <div class="hint">Como surgiu, quem está por trás, o que motivou a criação. Pode ser um texto livre e pessoal.</div>
+          <textarea name="q1_historia" placeholder="Sua história aqui..." required style="min-height:140px;"></textarea>
+        </div>
+
+        <div class="question">
+          <label>2. Quais são os 3 principais diferenciais da sua propriedade? *</label>
+          <div class="hint">O que faz você único em relação à concorrência.</div>
+          <input type="text" name="q2_diferencial1" placeholder="Diferencial 1" style="margin-bottom:10px;" required />
+          <input type="text" name="q2_diferencial2" placeholder="Diferencial 2" style="margin-bottom:10px;" required />
+          <input type="text" name="q2_diferencial3" placeholder="Diferencial 3" required />
+        </div>
+
+        <div class="question">
+          <label>3. Se a sua propriedade fosse uma pessoa, como ela seria?</label>
+          <div class="hint">Descreva a personalidade, jeito de falar, estilo. Isso nos ajuda a definir a alma da marca.</div>
+          <textarea name="q3_personalidade" placeholder="Ex: seria uma mulher de 45 anos, sofisticada mas acolhedora, que ama a natureza e recebe os amigos com café feito na hora..."></textarea>
+        </div>
+
+        <div class="question">
+          <label>4. Quais são os valores inegociáveis da sua propriedade? *</label>
+          <div class="hint">Exemplos: sustentabilidade, acolhimento, sofisticação, autenticidade, família.</div>
+          <textarea name="q4_valores" placeholder="Liste os valores que definem sua propriedade..." required></textarea>
+        </div>
+
+        <div class="question">
+          <label>5. Qual é a experiência que você quer que o hóspede tenha? *</label>
+          <div class="hint">Como ele deve se sentir ao chegar, durante a estadia e ao sair.</div>
+          <textarea name="q5_experiencia" placeholder="Descreva a jornada ideal do seu hóspede..." required></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2 -->
+    <div class="section" id="sec-2">
+      <div class="section-header" onclick="toggleSection('sec-2')">
+        <div class="section-header-left">
+          <div class="section-number">2</div>
+          <div>
+            <div class="section-title">Posicionamento e Mercado</div>
+            <div class="section-subtitle">Concorrência</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>6. Quem são seus principais concorrentes diretos?</label>
+          <div class="hint">Liste 2 a 4 propriedades que disputam o mesmo público. Pode incluir nome e link.</div>
+          <textarea name="q6_concorrentes" placeholder="Ex: Pousada X — pousadax.com.br"></textarea>
+        </div>
+
+        <div class="question">
+          <label>7. O que você admira nessa concorrência?</label>
+          <textarea name="q7_admira" placeholder="O que eles fazem bem que te inspira?"></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3 -->
+    <div class="section" id="sec-3">
+      <div class="section-header" onclick="toggleSection('sec-3')">
+        <div class="section-header-left">
+          <div class="section-number">3</div>
+          <div>
+            <div class="section-title">Personalidade Visual da Marca</div>
+            <div class="section-subtitle">Como você quer ser percebido</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>8. Escolha os adjetivos que melhor descrevem sua marca (até 6):</label>
+          <div class="options-list grid-2">
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="elegante" /> Elegante</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="aconchegante" /> Aconchegante</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="rustico" /> Rústico</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="moderno" /> Moderno</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="sofisticado" /> Sofisticado</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="despojado" /> Despojado</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="aventureiro" /> Aventureiro</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="tranquilo" /> Tranquilo</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="vibrante" /> Vibrante</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="minimalista" /> Minimalista</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="luxuoso" /> Luxuoso</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="familiar" /> Familiar</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="sustentavel" /> Sustentável</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="autentico" /> Autêntico</label>
+            <label class="option-item"><input type="checkbox" name="q8_adj" value="romantico" /> Romântico</label>
+          </div>
+          <div class="other-field visible" style="margin-top:10px;">
+            <input type="text" name="q8_outro" placeholder="Outro adjetivo..." />
+          </div>
+        </div>
+
+        <div class="question">
+          <label>9. Posicione sua marca nos eixos abaixo:</label>
+          <div class="hint">Clique no ponto que melhor representa onde você está em cada escala.</div>
+          <div class="scale-group">
+            <div class="scale-row">
+              <div class="scale-label-left">Clássico</div>
+              <div class="scale-dots" id="scale-classico-moderno">
+                <div class="scale-dot" onclick="selectDot('classico-moderno', 1)">1</div>
+                <div class="scale-dot" onclick="selectDot('classico-moderno', 2)">2</div>
+                <div class="scale-dot" onclick="selectDot('classico-moderno', 3)">3</div>
+                <div class="scale-dot" onclick="selectDot('classico-moderno', 4)">4</div>
+                <div class="scale-dot" onclick="selectDot('classico-moderno', 5)">5</div>
+              </div>
+              <div class="scale-label-right">Moderno</div>
+            </div>
+            <div class="scale-row">
+              <div class="scale-label-left">Sério</div>
+              <div class="scale-dots" id="scale-serio-descontraido">
+                <div class="scale-dot" onclick="selectDot('serio-descontraido', 1)">1</div>
+                <div class="scale-dot" onclick="selectDot('serio-descontraido', 2)">2</div>
+                <div class="scale-dot" onclick="selectDot('serio-descontraido', 3)">3</div>
+                <div class="scale-dot" onclick="selectDot('serio-descontraido', 4)">4</div>
+                <div class="scale-dot" onclick="selectDot('serio-descontraido', 5)">5</div>
+              </div>
+              <div class="scale-label-right">Descontraído</div>
+            </div>
+            <div class="scale-row">
+              <div class="scale-label-left">Exclusivo</div>
+              <div class="scale-dots" id="scale-exclusivo-acessivel">
+                <div class="scale-dot" onclick="selectDot('exclusivo-acessivel', 1)">1</div>
+                <div class="scale-dot" onclick="selectDot('exclusivo-acessivel', 2)">2</div>
+                <div class="scale-dot" onclick="selectDot('exclusivo-acessivel', 3)">3</div>
+                <div class="scale-dot" onclick="selectDot('exclusivo-acessivel', 4)">4</div>
+                <div class="scale-dot" onclick="selectDot('exclusivo-acessivel', 5)">5</div>
+              </div>
+              <div class="scale-label-right">Acessível</div>
+            </div>
+            <div class="scale-row">
+              <div class="scale-label-left">Simples</div>
+              <div class="scale-dots" id="scale-simples-elaborado">
+                <div class="scale-dot" onclick="selectDot('simples-elaborado', 1)">1</div>
+                <div class="scale-dot" onclick="selectDot('simples-elaborado', 2)">2</div>
+                <div class="scale-dot" onclick="selectDot('simples-elaborado', 3)">3</div>
+                <div class="scale-dot" onclick="selectDot('simples-elaborado', 4)">4</div>
+                <div class="scale-dot" onclick="selectDot('simples-elaborado', 5)">5</div>
+              </div>
+              <div class="scale-label-right">Elaborado</div>
+            </div>
+          </div>
+          <input type="hidden" name="q9_escala" id="q9_escala_value" />
+        </div>
+
+        <div class="question">
+          <label>10. Sua propriedade tem um elemento visual ou temático marcante?</label>
+          <div class="hint">Exemplos: uma árvore centenária, uma vista específica, uma arquitetura única, uma cor da fachada.</div>
+          <textarea name="q10_elemento" placeholder="Descreva algum elemento visual que define sua propriedade..."></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 4 -->
+    <div class="section" id="sec-4">
+      <div class="section-header" onclick="toggleSection('sec-4')">
+        <div class="section-header-left">
+          <div class="section-number">4</div>
+          <div>
+            <div class="section-title">Referências Visuais</div>
+            <div class="section-subtitle">O que você ama</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>11. Cole links de marcas, hotéis ou pousadas que você admira visualmente.</label>
+          <div class="hint">Não precisa ser do mesmo segmento — pode ser qualquer marca com estética que te agrada.</div>
+          <textarea name="q11_refs_positivas" placeholder="Links ou nomes de referências que você gosta..."></textarea>
+        </div>
+
+        <div class="question">
+          <label>12. O que especificamente você gosta nessas referências?</label>
+          <div class="hint">Exemplos: a paleta de cores, a tipografia, como as fotos são usadas, o estilo do logo.</div>
+          <textarea name="q12_porque_gosta" placeholder="Descreva o que te atrai nessas referências..."></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 5 -->
+    <div class="section" id="sec-5">
+      <div class="section-header" onclick="toggleSection('sec-5')">
+        <div class="section-header-left">
+          <div class="section-number">5</div>
+          <div>
+            <div class="section-title">Cores</div>
+            <div class="section-subtitle">Preferências e restrições de paleta</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>13. Existe alguma cor que você associa fortemente à sua propriedade?</label>
+          <div class="hint">Pode ser a cor da fachada, da decoração, de um elemento da paisagem.</div>
+          <input type="text" name="q13_cor_sim" placeholder="Ex: um verde musgo que está em toda a decoração" />
+        </div>
+
+        <div class="question">
+          <label>14. Existe alguma cor que você definitivamente NÃO quer na identidade visual?</label>
+          <input type="text" name="q14_cor_nao" placeholder="Ex: amarelo forte — não combina com nosso estilo" />
+        </div>
+
+        <div class="question">
+          <label>15. Qual paleta de tom geral mais combina com o que você imagina?</label>
+          <div class="options-list">
+            <label class="option-item"><input type="radio" name="q15_paleta" value="terrosos" /> Tons neutros e terrosos (bege, areia, marrom, off-white)</label>
+            <label class="option-item"><input type="radio" name="q15_paleta" value="escuros" /> Tons escuros e sofisticados (preto, chumbo, verde musgo)</label>
+            <label class="option-item"><input type="radio" name="q15_paleta" value="vibrantes" /> Tons vibrantes e alegres (coral, laranja, amarelo, turquesa)</label>
+            <label class="option-item"><input type="radio" name="q15_paleta" value="pastel" /> Tons pastel e delicados (rosa claro, lavanda, azul bebê)</label>
+            <label class="option-item"><input type="radio" name="q15_paleta" value="tropicais" /> Tons tropicais e naturais (verde, azul, dourado)</label>
+            <label class="option-item"><input type="radio" name="q15_paleta" value="livre" /> Sem preferência — confio na equipe</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 6 -->
+    <div class="section" id="sec-6">
+      <div class="section-header" onclick="toggleSection('sec-6')">
+        <div class="section-header-left">
+          <div class="section-number">6</div>
+          <div>
+            <div class="section-title">Tipografia e Estilo Gráfico</div>
+            <div class="section-subtitle">Fontes, logo e direção visual</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>16. Qual estilo tipográfico você prefere?</label>
+          <div class="options-list">
+            <label class="option-item"><input type="radio" name="q16_tipografia" value="serifa" /> Clássico com serifa — letras com traços nas pontas (tradição)</label>
+            <label class="option-item"><input type="radio" name="q16_tipografia" value="sem-serifa" /> Moderno sem serifa — letras clean e diretas (modernidade)</label>
+            <label class="option-item"><input type="radio" name="q16_tipografia" value="manuscrito" /> Manuscrito / caligráfico (calor humano e autenticidade)</label>
+            <label class="option-item"><input type="radio" name="q16_tipografia" value="misto" /> Misto — combinação de dois estilos</label>
+            <label class="option-item"><input type="radio" name="q16_tipografia" value="livre" /> Sem preferência</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>17. Qual estilo de logo você prefere?</label>
+          <div class="options-list">
+            <label class="option-item"><input type="radio" name="q17_logo" value="wordmark" /> Só o nome (wordmark)</label>
+            <label class="option-item"><input type="radio" name="q17_logo" value="simbolo+nome" /> Símbolo + nome</label>
+            <label class="option-item"><input type="radio" name="q17_logo" value="monograma" /> Monograma / iniciais</label>
+            <label class="option-item"><input type="radio" name="q17_logo" value="livre" /> Sem preferência</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <label>18. Prefere um estilo gráfico mais:</label>
+          <div class="options-list">
+            <label class="option-item"><input type="radio" name="q18_estilo" value="minimalista" /> Limpo e minimalista</label>
+            <label class="option-item"><input type="radio" name="q18_estilo" value="decorativo" /> Com detalhes e elementos decorativos</label>
+            <label class="option-item"><input type="radio" name="q18_estilo" value="fotografico" /> Fotográfico — uso forte de imagens</label>
+            <label class="option-item"><input type="radio" name="q18_estilo" value="ilustrativo" /> Ilustrativo / desenhado à mão</label>
+            <label class="option-item"><input type="radio" name="q18_estilo" value="livre" /> Sem preferência</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEÇÃO 7 -->
+    <div class="section" id="sec-7">
+      <div class="section-header" onclick="toggleSection('sec-7')">
+        <div class="section-header-left">
+          <div class="section-number">7</div>
+          <div>
+            <div class="section-title">Palavra Livre</div>
+            <div class="section-subtitle">Espaço aberto para o que quiser compartilhar</div>
+          </div>
+        </div>
+        <div class="section-chevron">⌄</div>
+      </div>
+      <div class="section-body">
+
+        <div class="question">
+          <label>19. Tem algo importante que não foi perguntado?</label>
+          <div class="hint">Histórias, curiosidades, inspirações pessoais, qualquer coisa que nos ajude a entender melhor sua propriedade.</div>
+          <textarea name="q19_livre" placeholder="Conte o que quiser..." style="min-height:120px;"></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-section">
+      <h3>Pronto para enviar? 🎉</h3>
+      <p>Após o envio, nossa equipe entrará em contato para alinhar os próximos passos do projeto.</p>
+      <button type="submit" class="btn-submit">Enviar briefing</button>
+    </div>
+
+  </form>
+
+  <!-- SUCCESS -->
+  <div id="success-screen">
+    <div class="success-icon">✓</div>
+    <h2>Briefing recebido!</h2>
+    <p>Obrigada por dedicar seu tempo a responder esse formulário. Essas informações são a base de tudo que vamos criar juntos.<br /><br />Em breve nossa equipe entrará em contato. 💜</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Thrive Group</strong> — Nossa missão é fazer seu hotel vender de uma maneira que você nunca imaginou.
+</footer>
+
+<script>
+  // ── TOGGLE SECTIONS ──
+  function toggleSection(id) {
+    const sec = document.getElementById(id);
+    const isOpen = sec.classList.contains('open');
+    sec.classList.toggle('open', !isOpen);
+    updateProgress();
+  }
+
+  // ── OTHER FIELD ──
+  function toggleOther(fieldId) {
+    document.getElementById(fieldId).classList.add('visible');
+  }
+
+  // ── SCALE DOTS ──
+  const scaleValues = {};
+
+  function selectDot(scale, val) {
+    scaleValues[scale] = val;
+    const container = document.getElementById('scale-' + scale);
+    container.querySelectorAll('.scale-dot').forEach((dot, i) => {
+      dot.classList.toggle('selected', i + 1 === val);
+    });
+    updateScaleHidden();
+  }
+
+  function updateScaleHidden() {
+    const parts = Object.entries(scaleValues).map(([k, v]) => `${k}:${v}`).join(', ');
+    document.getElementById('q9_escala_value').value = parts;
+  }
+
+  // ── PROGRESS ──
+  function updateProgress() {
+    const total = 7;
+    const open = document.querySelectorAll('.section.open').length;
+    document.getElementById('progress-label').textContent = `${open} / ${total} seções`;
+    document.getElementById('progress-fill').style.width = `${(open / total) * 100}%`;
+  }
+
+  // ── CHECKBOX LIMIT (8 — max 6) ──
+  document.querySelectorAll('input[name="q8_adj"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const checked = document.querySelectorAll('input[name="q8_adj"]:checked');
+      if (checked.length > 6) cb.checked = false;
+    });
+  });
+
+  // ── SUBMIT ──
+  // Cole aqui a URL do Web App do Google Apps Script (Implantar > Nova implantação > App da Web).
+  // Veja o arquivo Operacional/Backend-Formulario-Onboarding.gs para criar esse backend.
+  const WEBHOOK_URL = 'https://script.google.com/a/macros/thrivegroupbr.com.br/s/AKfycbzwmkFIe_3fJQyTsgLjCaOSUGQjkbe8K_d-WsxC2m6mjETcc_2l70yC9OnFl0XP404Wcw/exec';
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    // Collect all data
+    const data = {};
+    const form = document.getElementById('briefing-form');
+    const formData = new FormData(form);
+
+    formData.forEach((value, key) => {
+      if (data[key]) {
+        data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+      } else {
+        data[key] = value;
+      }
+    });
+
+    data.timestamp = new Date().toISOString();
+
+    try {
+      // mode: 'no-cors' porque o Apps Script Web App não devolve headers de CORS.
+      // Isso significa que não conseguimos ler a resposta — só confiamos que o POST saiu.
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.error('Erro ao enviar briefing:', err);
+    }
+
+    // Show success
+    document.getElementById('main-content').style.display = 'none';
+    document.querySelector('.form-container').innerHTML = '';
+    document.getElementById('success-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Open first section by default
+  document.getElementById('sec-1').classList.add('open');
+  updateProgress();
+</script>
+</body>
+</html>
