@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário Hoteleiro 2027 | Thrive Group</title>
+<!--
+  CONFIG (preencher antes de publicar)
+  RD_TOKEN_PUBLICO ....... 702ca259b0ffde42bce207fa07fb5f42
+  IDENTIFICADOR .......... calendario-hoteleiro-2027
+  TAG .................... calendario-hoteleiro-2027
+  URL_OBRIGADO ........... https://vip.thrivegroupbr.com.br/obrigado-calendario-2027
+  IMAGENS ................ https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto:#0D0D0D; --card:#161616; --linha:rgba(255,255,255,.10);
+    --teal:#4BB4B2; --roxo:#8635E6; --rosa:#BC2F84; --verm:#F70054; --amar:#ECAC2D;
+    --texto:#d6d6d6; --suave:#9a9a9a; --branco:#ffffff;
+    --grad:linear-gradient(90deg,#ECAC2D,#F70054,#8635E6,#4BB4B2);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Rethink Sans',sans-serif;color:var(--texto);background:var(--preto);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0;position:relative}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;display:block}
+  .gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .section-title{font-size:clamp(30px,4vw,46px);line-height:1.08;font-weight:800;letter-spacing:-.03em;color:var(--branco);margin-bottom:16px}
+  .section-sub{font-size:17px;color:var(--texto);max-width:620px}
+  .center{text-align:center}.center .section-sub{margin:0 auto}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Rethink Sans',sans-serif;font-weight:700;font-size:16px;padding:17px 32px;border-radius:40px;transition:transform .2s,box-shadow .2s;cursor:pointer;border:none}
+  .btn-grad{background:var(--grad);color:var(--branco);box-shadow:0 10px 30px rgba(247,0,84,.25)}
+  .btn-grad:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(247,0,84,.35)}
+  .btn-branco{background:var(--branco);color:var(--preto)}
+  .btn-branco:hover{transform:translateY(-2px)}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;padding:0 0 70px;background:
+    radial-gradient(60% 55% at 95% 0%,rgba(134,53,230,.45),transparent 70%),
+    radial-gradient(45% 45% at 70% 60%,rgba(247,0,84,.22),transparent 70%),
+    radial-gradient(40% 40% at 0% 100%,rgba(75,180,178,.20),transparent 70%),var(--preto)}
+  .hero-top{display:flex;justify-content:space-between;align-items:center;padding:30px 0}
+  .hero-logo{width:150px}
+  .hero-top a{font-size:14px;font-weight:600;color:var(--branco);opacity:.85}
+  .hero-content{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-top:30px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);color:var(--branco);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;padding:8px 16px;border-radius:100px;margin-bottom:24px}
+  .hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--amar);display:inline-block}
+  .hero h1{font-size:clamp(36px,5vw,62px);font-weight:800;line-height:1.02;letter-spacing:-.035em;color:var(--branco);margin-bottom:22px}
+  .hero-sub{font-size:18px;color:var(--texto);max-width:520px;margin-bottom:30px}
+  .hero-list{list-style:none;margin-bottom:30px}
+  .hero-list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:var(--branco);margin-bottom:10px}
+  .hero-list li span{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(75,180,178,.18);color:var(--teal);font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .countdown-box{display:inline-flex;align-items:center;gap:16px;background:rgba(255,255,255,.05);border:1px solid var(--linha);border-radius:16px;padding:14px 18px}
+  .countdown-box .num{font-size:34px;font-weight:800;line-height:1;color:var(--amar)}
+  .countdown-box p{font-size:13.5px;line-height:1.35;color:var(--texto)}
+  .countdown-box p b{color:var(--branco)}
+
+  .hero-cover{display:flex;justify-content:center}
+  .hero-cover img{width:100%;max-width:400px;border-radius:14px;transform:rotate(4deg);box-shadow:0 40px 90px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.08)}
+  .hero-cta{margin-top:26px}
+  .cta-grid{display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;text-align:left}
+  .form-card{position:relative;z-index:1;background:rgba(22,22,22,.92);border-radius:22px;padding:34px 30px;
+    border:1.5px solid transparent;background-clip:padding-box;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .form-card::before{content:"";position:absolute;inset:-1.5px;border-radius:23px;padding:1.5px;background:var(--grad);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+  .form-card h2{font-size:24px;line-height:1.2;font-weight:800;color:var(--branco);margin-bottom:6px}
+  .form-card .fc-sub{font-size:14px;color:var(--suave);margin-bottom:20px}
+  .form-card input{width:100%;background:#0f0f0f;border:1px solid rgba(255,255,255,.14);color:var(--branco);border-radius:12px;padding:15px 16px;font-size:15px;margin-bottom:12px;font-family:'Rethink Sans',sans-serif;outline:none;transition:border-color .2s}
+  .form-card input::placeholder{color:#7d7d7d}
+  .form-card input:focus{border-color:var(--teal)}
+  .form-card .btn{width:100%;margin-top:6px}
+  .form-note{font-size:12px;color:#8a8a8a;text-align:center;margin-top:14px;line-height:1.5}
+  .form-msg{font-size:13.5px;text-align:center;margin-top:12px;display:none}
+  .form-msg.erro{display:block;color:#ff6b8f}
+
+  /* FAIXA */
+  .band{background:var(--grad);color:var(--branco)}
+  .band .container{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:26px;padding-bottom:26px}
+  .band div b{display:block;font-size:30px;font-weight:800;line-height:1.1}
+  .band div span{font-size:14px;font-weight:500;opacity:.95}
+
+  /* O QUE TEM */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+  .feat-card{background:var(--card);border:1px solid var(--linha);border-radius:20px;padding:28px}
+  .feat-card .n{font-size:14px;font-weight:800;margin-bottom:14px;display:block}
+  .feat-card h3{font-size:19px;color:var(--branco);font-weight:700;line-height:1.25;margin-bottom:8px}
+  .feat-card p{font-size:15px;color:var(--suave);line-height:1.55}
+
+  /* PREVIEW */
+  .preview{background:#111}
+  .pages{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px;align-items:start}
+  .pages figure{transition:transform .3s}
+  .pages figure:nth-child(2){transform:translateY(-24px)}
+  .pages img{border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.6);border:1px solid var(--linha)}
+  .pages figcaption{font-size:14px;color:var(--suave);text-align:center;margin-top:14px}
+  .pages figcaption b{color:var(--branco);display:block;font-size:15px}
+
+  /* 2027 */
+  .dates{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .date{background:var(--card);border:1px solid var(--linha);border-top:3px solid var(--c);border-radius:18px;padding:24px}
+  .date b{display:block;font-size:24px;font-weight:800;color:var(--branco);line-height:1.1;margin-bottom:4px}
+  .date small{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+  .date p{font-size:14.5px;color:var(--suave);margin-top:12px;line-height:1.55}
+
+  /* PARA QUEM */
+  .who{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .who-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .who-list div{background:var(--card);border:1px solid var(--linha);border-radius:16px;padding:20px 22px;color:var(--branco);font-weight:600;font-size:16px;display:flex;gap:12px;align-items:center}
+  .who-list div i{width:10px;height:10px;border-radius:50%;flex:none}
+
+  /* CTA FINAL */
+  .cta-final{overflow:hidden;background:
+    radial-gradient(50% 80% at 0% 0%,rgba(236,172,45,.35),transparent 70%),
+    radial-gradient(50% 80% at 100% 100%,rgba(75,180,178,.35),transparent 70%),
+    radial-gradient(60% 90% at 50% 50%,rgba(134,53,230,.35),transparent 70%),#140d1c}
+  .cta-final .section-title{max-width:560px}
+
+  /* FAQ */
+  .faq{max-width:800px;margin:44px auto 0}
+  .faq details{border-bottom:1px solid var(--linha);padding:20px 0}
+  .faq summary{cursor:pointer;list-style:none;font-size:18px;font-weight:700;color:var(--branco);display:flex;justify-content:space-between;gap:20px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:24px;line-height:1;color:var(--teal);font-weight:500}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{font-size:16px;color:var(--suave);margin-top:12px;max-width:700px}
+
+  footer{background:#000;color:#8a8a8a;text-align:center;padding:44px 24px;font-size:13.5px}
+  footer img{width:140px;margin:0 auto 16px}
+  footer a{color:var(--branco);font-weight:600}
+
+  @media (max-width:900px){
+    section{padding:70px 0}
+    .hero-content{grid-template-columns:1fr;gap:10px}
+    .hero-cover img{max-width:280px;margin-top:30px}
+    .cta-grid{grid-template-columns:1fr;gap:30px}
+    .band .container{grid-template-columns:1fr 1fr}
+    .feat,.dates{grid-template-columns:1fr 1fr}
+    .pages{grid-template-columns:1fr 1fr}
+    .pages figure:nth-child(2){transform:none}
+    .pages figure:nth-child(3){display:none}
+    .who{grid-template-columns:1fr;gap:30px}
+  }
+  @media (max-width:560px){
+    .feat,.dates,.who-list{grid-template-columns:1fr}
+    .hero-top a{display:none}
+    .hero-sub{font-size:16.5px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <img class="hero-logo" src="imagens/logo-thrive.png" alt="Thrive Group">
+      <a href="#formulario">Baixar o calendário</a>
+    </div>
+    <div class="hero-content">
+      <div>
+        <span class="hero-badge"><i></i>Material gratuito · PDF</span>
+        <h1>Calendário Hoteleiro <span class="gt">2027</span></h1>
+        <p class="hero-sub">O guia para hotéis, pousadas e resorts planejarem o ano com antecedência: feriados, emendas, datas comemorativas e oportunidades de venda de cada mês.</p>
+        <ul class="hero-list">
+          <li><span>✓</span>Todos os feriados e pontos facultativos de 2027, com as emendas</li>
+          <li><span>✓</span>Uma página por mês com ideias de campanhas e pacotes</li>
+          <li><span>✓</span>Quando começar a divulgar cada data e checklists mensais</li>
+        </ul>
+        <div class="countdown-box">
+          <div class="num" id="cd-dias">--</div>
+          <p>dias para o <b>Carnaval 2027</b>.<br>Sua campanha já está no ar?</p>
+        </div>
+        <div class="hero-cta"><a class="btn btn-grad" href="#formulario">Quero o calendário grátis</a></div>
+      </div>
+      <div class="hero-cover">
+        <img src="imagens/capa.jpg" alt="Capa do Calendário Hoteleiro 2027">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="container">
+    <div><b>10</b><span>feriados nacionais</span></div>
+    <div><b>4</b><span>feriadões com emenda</span></div>
+    <div><b>12</b><span>meses com oportunidades</span></div>
+    <div><b>22</b><span>páginas de planejamento</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--teal)">O que tem no material</span>
+      <h2 class="section-title">Mais que um calendário.<br><span class="gt">Um plano para o ano.</span></h2>
+      <p class="section-sub">Cada data vem acompanhada do que ela significa para a ocupação e do que fazer com ela.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-card"><span class="n" style="color:var(--amar)">01</span><h3>Visão geral do ano</h3><p>Os 12 meses numa página, com feriados, emendas e datas marcadas para enxergar 2027 de uma vez.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--verm)">02</span><h3>Feriados e feriadões</h3><p>A lista completa com dia da semana, período de viagem e o mês certo para começar a divulgar cada um.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--roxo)">03</span><h3>Planejamento mês a mês</h3><p>Datas do mês, termômetro de demanda para litoral e serra, ideias de campanhas e o que já preparar.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--teal)">04</span><h3>Estações e sazonalidade</h3><p>O que muda no motivo da viagem em cada estação e como adaptar pacotes e argumentos de venda.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--rosa)">05</span><h3>Dicas estratégicas</h3><p>Tarifas na alta, baixa temporada, Black Friday, Réveillon: respostas diretas para decisões do ano.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--amar)">06</span><h3>Checklists e indicadores</h3><p>Rotina mensal para marcar e um painel para acompanhar ocupação, diária média e RevPAR.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="preview">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--amar)">Por dentro do PDF</span>
+      <h2 class="section-title">Feito para consultar <span class="gt">o ano todo.</span></h2>
+    </div>
+    <div class="pages">
+      <figure><img src="imagens/visao-geral.jpg" alt="Página de visão geral do ano" loading="lazy"><figcaption><b>2027 em um olhar</b>Os 12 meses com tudo marcado</figcaption></figure>
+      <figure><img src="imagens/janeiro.jpg" alt="Página do mês de janeiro" loading="lazy"><figcaption><b>Uma página por mês</b>Datas, oportunidades e checklist</figcaption></figure>
+      <figure><img src="imagens/feriados.jpg" alt="Página da lista de feriados" loading="lazy"><figcaption><b>Feriados e emendas</b>E quando começar a divulgar</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="kicker" style="color:var(--verm)">Fique de olho</span>
+    <h2 class="section-title">2027 tem algumas <span class="gt">surpresas no calendário.</span></h2>
+    <p class="section-sub">Quem se planeja com o calendário na mão sai na frente da concorrência nessas datas.</p>
+    <div class="dates">
+      <div class="date" style="--c:var(--amar)"><small>Março</small><b>Páscoa no dia 28</b><p>A Páscoa chega cedo. Quem deixar para divulgar em março vai ter poucas semanas de venda.</p></div>
+      <div class="date" style="--c:var(--verm)"><small>Set · Out · Nov</small><b>3 feriados na terça</b><p>Independência, Aparecida e Finados viram feriadões de 4 dias com a emenda da segunda.</p></div>
+      <div class="date" style="--c:var(--roxo)"><small>Junho</small><b>Namorados no sábado</b><p>A procura se concentra numa noite. Dá para vender o pacote de sexta a domingo.</p></div>
+      <div class="date" style="--c:var(--teal)"><small>Dezembro</small><b>Réveillon na sexta</b><p>Virada de sexta para sábado favorece pacotes de 3 noites ou mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#111">
+  <div class="container who">
+    <div>
+      <span class="kicker" style="color:var(--roxo)">Para quem é</span>
+      <h2 class="section-title">Para quem decide <span class="gt">as vendas da hospedagem.</span></h2>
+      <p class="section-sub">Se você precisa antecipar a alta e a baixa temporada e não quer descobrir o feriado quando o hóspede já reservou em outro lugar, este material é para você.</p>
+    </div>
+    <div class="who-list">
+      <div><i style="background:var(--amar)"></i>Proprietários de hotéis e pousadas</div>
+      <div><i style="background:var(--verm)"></i>Gerentes gerais e gestores</div>
+      <div><i style="background:var(--roxo)"></i>Comercial e marketing</div>
+      <div><i style="background:var(--teal)"></i>Reservas e revenue management</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="formulario">
+  <div class="container cta-grid">
+    <div>
+      <span class="kicker" style="color:var(--branco)">Gratuito</span>
+      <h2 class="section-title">Comece 2027 sabendo exatamente onde estão as oportunidades.</h2>
+      <p class="section-sub" style="color:#e8e8e8">Preencha seus dados e baixe o Calendário Hoteleiro 2027 na hora.</p>
+    </div>
+    <div class="form-card">
+      <h2>Receba o calendário completo</h2>
+      <p class="fc-sub">Preencha e baixe o PDF na hora.</p>
+      <form id="conversion-form" novalidate>
+        <input type="text" id="eb-nome" placeholder="Nome completo" required autocomplete="name">
+        <input type="email" id="eb-email" placeholder="E-mail" required autocomplete="email">
+        <input type="tel" id="eb-whatsapp" placeholder="WhatsApp com DDD" required inputmode="tel" autocomplete="tel">
+        <button class="btn btn-grad" type="submit" id="eb-btn">Quero o calendário</button>
+        <p class="form-note">Seus dados estão seguros. Ao se cadastrar, você também recebe conteúdos da Thrive sobre marketing e vendas para hotelaria e pode cancelar quando quiser.</p>
+        <p class="form-msg" id="eb-msg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--teal)">Dúvidas</span>
+      <h2 class="section-title">Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>O material é gratuito mesmo?</summary><p>Sim. Basta preencher o formulário e o download é liberado na hora.</p></details>
+      <details><summary>Em que formato vem o calendário?</summary><p>É um PDF de 22 páginas, pensado para ler no computador ou no celular. Também dá para imprimir.</p></details>
+      <details><summary>Serve para pousadas pequenas?</summary><p>Serve. As datas, os feriadões e as dicas valem para qualquer hospedagem, de pousadas com poucos quartos a hotéis e resorts.</p></details>
+      <details><summary>Os feriados regionais estão incluídos?</summary><p>O calendário traz todos os feriados nacionais e pontos facultativos, além de alguns regionais com grande impacto no turismo. Vale conferir também o calendário oficial do seu município.</p></details>
+      <details><summary>Quem é a Thrive?</summary><p>A Thrive Group é uma agência especializada em marketing, vendas e revenue management para hotéis e pousadas. Nossa missão é fazer seu hotel vender de uma maneira que você nunca imaginou.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="imagens/logo-thrive.png" alt="Thrive Group">
+  <p>Marketing, vendas e revenue management para hotelaria.</p>
+  <p style="margin-top:8px"><a href="https://www.instagram.com/thrivegroup.br/" target="_blank" rel="noopener">@thrivegroup.br</a></p>
+  <p style="margin-top:14px">© 2026 Thrive Group. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+(function(){
+  var TOKEN_PUBLICO = '702ca259b0ffde42bce207fa07fb5f42';
+  var IDENTIFICADOR = 'calendario-hoteleiro-2027';
+  var TAG = 'calendario-hoteleiro-2027';
+  var URL_OBRIGADO = 'https://vip.thrivegroupbr.com.br/obrigado-calendario-2027';
+  var form = document.getElementById('conversion-form'); if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome=document.getElementById('eb-nome').value.trim();
+    var email=document.getElementById('eb-email').value.trim();
+    var whats=document.getElementById('eb-whatsapp').value.trim();
+    var msg=document.getElementById('eb-msg'), btn=document.getElementById('eb-btn');
+    msg.className='form-msg';
+    if(!nome||!email||!whats||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      msg.textContent='Preencha nome, e-mail válido e WhatsApp.'; msg.classList.add('erro'); return;
+    }
+    btn.disabled=true; btn.textContent='Enviando...';
+    fetch('https://api.rd.services/platform/conversions?api_key='+TOKEN_PUBLICO,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({event_type:'CONVERSION',event_family:'CDP',payload:{
+        conversion_identifier:IDENTIFICADOR, name:nome, email:email,
+        mobile_phone:whats, tags:[TAG], available_for_mailing:true }})
+    }).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); window.location.href=URL_OBRIGADO; })
+      .catch(function(){ btn.disabled=false; btn.textContent='Quero o calendário';
+        msg.textContent='Não foi possível enviar. Tente novamente.'; msg.classList.add('erro'); });
+  });
+})();
+(function(){
+  var alvo = new Date('2027-02-06T00:00:00-03:00').getTime();
+  var el = document.getElementById('cd-dias'); if(!el) return;
+  function tick(){ var d = Math.ceil((alvo - Date.now())/86400000); if(d<=0){ var b=el.closest('.countdown-box'); if(b) b.style.display='none'; return; } el.textContent = d; }
+  tick(); setInterval(tick, 60000);
+})();
+</script>
+</body>
+</html>

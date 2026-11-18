@@ -1,0 +1,30 @@
+<script>
+(function(){
+'use strict';
+document.body.innerHTML=`<div class="wrap">
+  <img class="logo" src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/logo-thrive.png" alt="Thrive Group">
+  <div class="grid">
+    <div>
+      <span class="ok">✓ Cadastro confirmado</span>
+      <h1>Seu Calendário Hoteleiro <span class="gt">2027</span> está pronto.</h1>
+      <p class="sub">Baixe o PDF, salve no computador ou no celular e use como guia para planejar as campanhas do ano.</p>
+      <a class="btn btn-grad" href="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/Calendario-Hoteleiro-2027_Thrive.pdf" target="_blank" rel="noopener" download>Baixar o calendário (PDF)</a>
+      <p class="hint">Dica: comece pela página de feriados para ver quando divulgar cada um.</p>
+    </div>
+    <div class="mock"><img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/capa.jpg" alt="Capa do Calendário Hoteleiro 2027"></div>
+  </div>
+  <div class="next">
+    <div>
+      <small>Próximo passo</small>
+      <h2>Quer transformar o calendário em reservas?</h2>
+      <p>A Thrive cuida do marketing, das vendas e do revenue management de hotéis e pousadas. Conte como está a sua hospedagem e a gente mostra por onde começar.</p>
+      <a class="insta" href="https://www.instagram.com/thrivegroup.br/" target="_blank" rel="noopener">Acompanhe também no Instagram: @thrivegroup.br</a>
+    </div>
+    <a class="btn btn-branco" href="https://api.whatsapp.com/send?phone=+5511920545500&amp;text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Thrive." target="_blank" rel="noopener">Falar com a Thrive</a>
+  </div>
+</div>`;
+
+
+
+})();
+</script>

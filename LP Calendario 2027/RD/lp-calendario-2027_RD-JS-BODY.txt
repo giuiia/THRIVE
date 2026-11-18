@@ -1,0 +1,184 @@
+<script>
+(function(){
+'use strict';
+document.body.innerHTML=`<header class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <img class="hero-logo" src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/logo-thrive.png" alt="Thrive Group">
+      <a href="#formulario">Baixar o calendário</a>
+    </div>
+    <div class="hero-content">
+      <div>
+        <span class="hero-badge"><i></i>Material gratuito · PDF</span>
+        <h1>Calendário Hoteleiro <span class="gt">2027</span></h1>
+        <p class="hero-sub">O guia para hotéis, pousadas e resorts planejarem o ano com antecedência: feriados, emendas, datas comemorativas e oportunidades de venda de cada mês.</p>
+        <ul class="hero-list">
+          <li><span>✓</span>Todos os feriados e pontos facultativos de 2027, com as emendas</li>
+          <li><span>✓</span>Uma página por mês com ideias de campanhas e pacotes</li>
+          <li><span>✓</span>Quando começar a divulgar cada data e checklists mensais</li>
+        </ul>
+        <div class="countdown-box">
+          <div class="num" id="cd-dias">--</div>
+          <p>dias para o <b>Carnaval 2027</b>.<br>Sua campanha já está no ar?</p>
+        </div>
+        <div class="hero-cta"><a class="btn btn-grad" href="#formulario">Quero o calendário grátis</a></div>
+      </div>
+      <div class="hero-cover">
+        <img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/capa.jpg" alt="Capa do Calendário Hoteleiro 2027">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="container">
+    <div><b>10</b><span>feriados nacionais</span></div>
+    <div><b>4</b><span>feriadões com emenda</span></div>
+    <div><b>12</b><span>meses com oportunidades</span></div>
+    <div><b>22</b><span>páginas de planejamento</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--teal)">O que tem no material</span>
+      <h2 class="section-title">Mais que um calendário.<br><span class="gt">Um plano para o ano.</span></h2>
+      <p class="section-sub">Cada data vem acompanhada do que ela significa para a ocupação e do que fazer com ela.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-card"><span class="n" style="color:var(--amar)">01</span><h3>Visão geral do ano</h3><p>Os 12 meses numa página, com feriados, emendas e datas marcadas para enxergar 2027 de uma vez.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--verm)">02</span><h3>Feriados e feriadões</h3><p>A lista completa com dia da semana, período de viagem e o mês certo para começar a divulgar cada um.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--roxo)">03</span><h3>Planejamento mês a mês</h3><p>Datas do mês, termômetro de demanda para litoral e serra, ideias de campanhas e o que já preparar.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--teal)">04</span><h3>Estações e sazonalidade</h3><p>O que muda no motivo da viagem em cada estação e como adaptar pacotes e argumentos de venda.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--rosa)">05</span><h3>Dicas estratégicas</h3><p>Tarifas na alta, baixa temporada, Black Friday, Réveillon: respostas diretas para decisões do ano.</p></div>
+      <div class="feat-card"><span class="n" style="color:var(--amar)">06</span><h3>Checklists e indicadores</h3><p>Rotina mensal para marcar e um painel para acompanhar ocupação, diária média e RevPAR.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="preview">
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--amar)">Por dentro do PDF</span>
+      <h2 class="section-title">Feito para consultar <span class="gt">o ano todo.</span></h2>
+    </div>
+    <div class="pages">
+      <figure><img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/visao-geral.jpg" alt="Página de visão geral do ano" loading="lazy"><figcaption><b>2027 em um olhar</b>Os 12 meses com tudo marcado</figcaption></figure>
+      <figure><img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/janeiro.jpg" alt="Página do mês de janeiro" loading="lazy"><figcaption><b>Uma página por mês</b>Datas, oportunidades e checklist</figcaption></figure>
+      <figure><img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/feriados.jpg" alt="Página da lista de feriados" loading="lazy"><figcaption><b>Feriados e emendas</b>E quando começar a divulgar</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="kicker" style="color:var(--verm)">Fique de olho</span>
+    <h2 class="section-title">2027 tem algumas <span class="gt">surpresas no calendário.</span></h2>
+    <p class="section-sub">Quem se planeja com o calendário na mão sai na frente da concorrência nessas datas.</p>
+    <div class="dates">
+      <div class="date" style="--c:var(--amar)"><small>Março</small><b>Páscoa no dia 28</b><p>A Páscoa chega cedo. Quem deixar para divulgar em março vai ter poucas semanas de venda.</p></div>
+      <div class="date" style="--c:var(--verm)"><small>Set · Out · Nov</small><b>3 feriados na terça</b><p>Independência, Aparecida e Finados viram feriadões de 4 dias com a emenda da segunda.</p></div>
+      <div class="date" style="--c:var(--roxo)"><small>Junho</small><b>Namorados no sábado</b><p>A procura se concentra numa noite. Dá para vender o pacote de sexta a domingo.</p></div>
+      <div class="date" style="--c:var(--teal)"><small>Dezembro</small><b>Réveillon na sexta</b><p>Virada de sexta para sábado favorece pacotes de 3 noites ou mais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#111">
+  <div class="container who">
+    <div>
+      <span class="kicker" style="color:var(--roxo)">Para quem é</span>
+      <h2 class="section-title">Para quem decide <span class="gt">as vendas da hospedagem.</span></h2>
+      <p class="section-sub">Se você precisa antecipar a alta e a baixa temporada e não quer descobrir o feriado quando o hóspede já reservou em outro lugar, este material é para você.</p>
+    </div>
+    <div class="who-list">
+      <div><i style="background:var(--amar)"></i>Proprietários de hotéis e pousadas</div>
+      <div><i style="background:var(--verm)"></i>Gerentes gerais e gestores</div>
+      <div><i style="background:var(--roxo)"></i>Comercial e marketing</div>
+      <div><i style="background:var(--teal)"></i>Reservas e revenue management</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="formulario">
+  <div class="container cta-grid">
+    <div>
+      <span class="kicker" style="color:var(--branco)">Gratuito</span>
+      <h2 class="section-title">Comece 2027 sabendo exatamente onde estão as oportunidades.</h2>
+      <p class="section-sub" style="color:#e8e8e8">Preencha seus dados e baixe o Calendário Hoteleiro 2027 na hora.</p>
+    </div>
+    <div class="form-card">
+      <h2>Receba o calendário completo</h2>
+      <p class="fc-sub">Preencha e baixe o PDF na hora.</p>
+      <form id="conversion-form" novalidate>
+        <input type="text" id="eb-nome" placeholder="Nome completo" required autocomplete="name">
+        <input type="email" id="eb-email" placeholder="E-mail" required autocomplete="email">
+        <input type="tel" id="eb-whatsapp" placeholder="WhatsApp com DDD" required inputmode="tel" autocomplete="tel">
+        <button class="btn btn-grad" type="submit" id="eb-btn">Quero o calendário</button>
+        <p class="form-note">Seus dados estão seguros. Ao se cadastrar, você também recebe conteúdos da Thrive sobre marketing e vendas para hotelaria e pode cancelar quando quiser.</p>
+        <p class="form-msg" id="eb-msg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="center">
+      <span class="kicker" style="color:var(--teal)">Dúvidas</span>
+      <h2 class="section-title">Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>O material é gratuito mesmo?</summary><p>Sim. Basta preencher o formulário e o download é liberado na hora.</p></details>
+      <details><summary>Em que formato vem o calendário?</summary><p>É um PDF de 22 páginas, pensado para ler no computador ou no celular. Também dá para imprimir.</p></details>
+      <details><summary>Serve para pousadas pequenas?</summary><p>Serve. As datas, os feriadões e as dicas valem para qualquer hospedagem, de pousadas com poucos quartos a hotéis e resorts.</p></details>
+      <details><summary>Os feriados regionais estão incluídos?</summary><p>O calendário traz todos os feriados nacionais e pontos facultativos, além de alguns regionais com grande impacto no turismo. Vale conferir também o calendário oficial do seu município.</p></details>
+      <details><summary>Quem é a Thrive?</summary><p>A Thrive Group é uma agência especializada em marketing, vendas e revenue management para hotéis e pousadas. Nossa missão é fazer seu hotel vender de uma maneira que você nunca imaginou.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="https://raw.githubusercontent.com/giuiia/THRIVE/main/lp-calendario-2027/imagens/logo-thrive.png" alt="Thrive Group">
+  <p>Marketing, vendas e revenue management para hotelaria.</p>
+  <p style="margin-top:8px"><a href="https://www.instagram.com/thrivegroup.br/" target="_blank" rel="noopener">@thrivegroup.br</a></p>
+  <p style="margin-top:14px">© 2026 Thrive Group. Todos os direitos reservados.</p>
+</footer>`;
+
+(function(){
+  var TOKEN_PUBLICO = '702ca259b0ffde42bce207fa07fb5f42';
+  var IDENTIFICADOR = 'calendario-hoteleiro-2027';
+  var TAG = 'calendario-hoteleiro-2027';
+  var URL_OBRIGADO = 'https://vip.thrivegroupbr.com.br/obrigado-calendario-2027';
+  var form = document.getElementById('conversion-form'); if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome=document.getElementById('eb-nome').value.trim();
+    var email=document.getElementById('eb-email').value.trim();
+    var whats=document.getElementById('eb-whatsapp').value.trim();
+    var msg=document.getElementById('eb-msg'), btn=document.getElementById('eb-btn');
+    msg.className='form-msg';
+    if(!nome||!email||!whats||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      msg.textContent='Preencha nome, e-mail válido e WhatsApp.'; msg.classList.add('erro'); return;
+    }
+    btn.disabled=true; btn.textContent='Enviando...';
+    fetch('https://api.rd.services/platform/conversions?api_key='+TOKEN_PUBLICO,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({event_type:'CONVERSION',event_family:'CDP',payload:{
+        conversion_identifier:IDENTIFICADOR, name:nome, email:email,
+        mobile_phone:whats, tags:[TAG], available_for_mailing:true }})
+    }).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); window.location.href=URL_OBRIGADO; })
+      .catch(function(){ btn.disabled=false; btn.textContent='Quero o calendário';
+        msg.textContent='Não foi possível enviar. Tente novamente.'; msg.classList.add('erro'); });
+  });
+})();
+(function(){
+  var alvo = new Date('2027-02-06T00:00:00-03:00').getTime();
+  var el = document.getElementById('cd-dias'); if(!el) return;
+  function tick(){ var d = Math.ceil((alvo - Date.now())/86400000); if(d<=0){ var b=el.closest('.countdown-box'); if(b) b.style.display='none'; return; } el.textContent = d; }
+  tick(); setInterval(tick, 60000);
+})();
+
+})();
+</script>
